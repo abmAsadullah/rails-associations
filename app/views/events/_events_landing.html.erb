@@ -1,0 +1,10 @@
+<div class="container">
+	<h1>
+		Welcome <%= current_user.name %>, this is your list of events 
+	</h1>
+	<% @events.each do |e| %>
+	<%= link_to e.title, e %><br>
+	<% end %>
+	<%= link_to 'Schedule New Session', new_event_path, class:'btn btn-success' %>
+	<%= link_to 'Back To Dashboard', home_index_path, class:'btn btn-secondary' %>
+</div>
