@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+@import 'bootstrap/scss/bootstrap';
+
+.pink {
+	background-color: #f7519f;
+	color: white;
+	margin-left: 10px;
+}
