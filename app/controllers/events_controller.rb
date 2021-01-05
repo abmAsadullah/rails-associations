@@ -1,8 +1,13 @@
 class EventsController < ApplicationController
 before_action :authenticate_user!
 def index 
-@events = current_user.events.all
+ @events = Event.all.order('created_at Desc')
 end
+  def attend
+    @event = Event.find(params[:id])
+    current_user.events << @event
+    redirect_to @event, notice: 'You have promised to attend this event.'
+  end
 
 def show
 @event = Event.find(params[:id])
@@ -29,10 +34,16 @@ def update
 
 	end
 
+def destroy
+@event = Event.find(params[:id])
+@event.destroy
+redirect_to root_path
+end
+
 private
 
 def event_params
-params.require(:event).permit(:strat_time, :end_time, :creator_id, :title, :description)
+params.require(:event).permit(:start_time, :end_time, :title, :description)
 end
 
 end

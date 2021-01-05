@@ -2,8 +2,20 @@
 	<h1>
 		Welcome <%= current_user.name %>, this is your list of events 
 	</h1>
-	<% @events.each do |e| %>
-	<%= link_to e.title, e %><br>
+
+	<h3>Upcoming Events:</h3>
+	<% if @upcoming_events %>
+<%=  @upcoming_events.each do |event| %>
+<%= link_to event.title, event %>
+	<% end %>
+	<% else %>
+	<h3>There is No Upcoming Events</h3>
+	<% end %>
+	<h3>Past Events:</h3>
+	<% if @past_events%>
+		<% @past_events.each do |event| %>
+		<%= link_to event.title, event %><br>
+		<% end %>
 	<% end %>
 	<%= link_to 'Schedule New Session', new_event_path, class:'btn btn-success' %>
 	<%= link_to 'Back To Dashboard', home_index_path, class:'btn btn-secondary' %>

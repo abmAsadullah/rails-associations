@@ -6,5 +6,7 @@ class UserController < ApplicationController
   end
 
   def show
+  	@events = current_user.events.all
+
   end
 end

@@ -16,7 +16,9 @@
   <div class="card-body">
     <a href="#" class="card-link"><%= link_to "Back", events_path, class:'btn btn-secondary' %></a>
     <a href="#" class="card-link"><%= link_to 'Edit', edit_event_path, class:'btn btn-secondary' %></a>
+    <a href="#" class="card-link"><%= link_to 'Delete', event_path(@event), method: :delete, class:'btn btn-secondary' %></a>
 
   </div>
+  <%= link_to 'Attend', new_user_event_path %>
 </div>
 </div>
